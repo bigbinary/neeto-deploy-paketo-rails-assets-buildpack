@@ -71,8 +71,8 @@ func Detect(gemfileParser Parser) packit.DetectFunc {
 			return packit.DetectResult{}, fmt.Errorf("failed to parse Gemfile: %w", err)
 		}
 
-		if !hasRails {
-			return packit.DetectResult{}, packit.Fail.WithMessage("failed to find rails gem in Gemfile")
+		if hasRails {
+			fmt.Println("rails gem found in the Gemfile")
 		}
 
 		requirements := []packit.BuildPlanRequirement{
